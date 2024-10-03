@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pagina.css">
+</head>
+<body>
+    <div class="contenedorIMC">
+        <h1>Calculadora de Índice de Masa Corporal (IMC)</h1>
+        <p>Es una medida que relaciona el peso y la estatura de una persona para determinar si su peso es saludable. Calcula tu IMC a continuación:</p>
+        
+        <div class="formularioGeneral">
+            <form id="imcFormulario" class="formularioIMC">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+
+                <label for="peso">Peso (Kilogramos):</label>
+                <input type="number" id="peso" name="peso" placeholder="Ingresa tu peso" required>
+
+                <label for="Estatura">Estatura (Metros):</label>
+                <input type="number" id="Estatura" name="Estatura" placeholder="Ingresa tu estatura" step="0.01" min="0.01" required>
+
+                <div class="btn" role="group" aria-label="Botones de IMC">
+                    <button type="button" class="btn btn-success" onclick="calcularIMC()">Calcular</button>
+                    <button type="button" class="btn btn-danger" onclick="reiniciar()">Reiniciar</button>
+                    <button type="button" class="btn btn-info" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLScjFaY-qoS0xMTQ4fuPSrhMh-7ynl7yCQKvaJFmKUPTSpxF2g/viewform'">Califica experiencia</button>
+                </div>
+            </form>
+
+            <div class="resultado-dieta-contenedor">
+                <div class="clasificacionIMC">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Clasificación</th>
+                                <th>IMC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bajo peso</td>
+                                <td>Menos de 18.5</td>
+                            </tr>
+                            <tr>
+                                <td>Normal</td>
+                                <td>18.5 - 24.9</td>
+                            </tr>
+                            <tr>
+                                <td>Sobrepeso</td>
+                                <td>25 - 29.9</td>
+                            </tr>
+                            <tr>
+                                <td>Obesidad</td>
+                                <td>30 o más</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="resultado-clasificacion">Tu IMC es: <br>Clasificación:</div>
+                    <div id="barra-calor"></div>
+                </div>
+
+                <div class="dietaYCalificacionIM">
+                    <h3>Tu dieta recomendada</h3>
+                    <p>Según tu resultado de IMC a continuacion se te recomienda una dieta para mejorar o mantener tu resultado.</p>
+                    
+                    <div id="dieta-recomendada" style="font-weight: bold;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script src="pagina.js"></script>
